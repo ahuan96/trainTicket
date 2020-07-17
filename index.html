@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+<body>
+    <div id="view"></div>
+
+<script id="demo" type="text/html">
+    <div class="box">
+        
+        <div class="box-head">
+            <div class="userinfo"><span>乘车人：{{d.name}}</span><span>{{d.idcard}}</span></div>
+            <div class="f-c ">
+                <button class="baoBtn">购买保险</button>
+                <div class="checkbox selAll"></div>
+                <span style="color: #0389E1;" >选择全部车票</span>
+            </div>
+        </div>
+        <div class="box-cont">
+            <div class="tab">
+               <div class="xie-box">
+                    <div class="xie"></div>
+               </div>
+               <div class="tab-cont">
+                   <span class="tab-tip">未乘车票</span>
+                   <span>(共<span>{{d.list.length}}</span>张 选中<span class="selCount">0</span>张)</span>
+               </div>
+            </div>
+            <ul class="tab-list">
+                {{#  layui.each(d.list, function(index, item){ }}
+                <li>
+                    <div class="one">
+                        <div class="cu-f">{{ item.from }}</div>
+                        <div>{{item.time}} 发</div>
+                        <div>¥{{item.price}} {{item.type}}</div>
+                    </div>
+                    <div  class="two">
+                        <div class="cu-f arrow">{{item.no}}</div>
+                        <div class="or-f">*票款{{item.ispay?'已':'未'}}支付</div>
+                    </div>
+                    <div class="three">
+                        <div class="cu-f">{{item.to}}</div>
+                        <div>{{item.seat}}</div>
+                        <div>{{item.level}}</div>
+                    </div>
+                    <div class="four">
+                        <div class="checkbox selOne"></div>
+                        <div class="bao-box">
+                            <div class="bao">保</div>
+                        </div>
+                    </div>
+                </li>
+                {{#  }); }}
+
+            </ul>
+        </div>
+    </div>
+  </ul>
+</script>
+</body>
+<script src="./layui/layui.js"></script>
+<script src="./js/index.js"></script>
+</html>
