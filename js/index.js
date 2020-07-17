@@ -106,7 +106,6 @@ $(document).on('click','.baoBtn',function(e){
   // 重置一些视图显示
   function setView(){
       let count  = $('.tab-list li .active').length
-      console.log(11,count)
       $('.selCount').text(count)
   }
 
